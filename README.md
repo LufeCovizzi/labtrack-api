@@ -7,10 +7,10 @@ Projeto em desenvolvimento, criado como parte da minha transição de carreira d
 ## 🚀 Tecnologias utilizadas
 
 - **Python**
-- **FastAPI** — framework para construção da API REST
-- **SQLAlchemy** — ORM para mapear classes Python em tabelas do banco de dados
-- **Pydantic** — validação de dados de entrada e saída
-- **SQLite** — banco de dados usado em desenvolvimento (compatível com migração futura para PostgreSQL)
+- **FastAPI** - framework para construção da API REST
+- **SQLAlchemy** - ORM para mapear classes Python em tabelas do banco de dados
+- **Pydantic** - validação de dados de entrada e saída
+- **SQLite** - banco de dados usado em desenvolvimento (compatível com migração futura para PostgreSQL)
 
 ## 📋 Status atual do projeto
 
