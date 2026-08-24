@@ -17,6 +17,4 @@ class ExperimentOut(BaseModel):
     description: str
     responsible_researcher: str
     status: str
-    created_time: datetime
-    
-    
+    created_at: datetime   # <- mudou de created_time pra created_at
