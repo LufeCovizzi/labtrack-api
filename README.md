@@ -1,10 +1,10 @@
-# 🧪 LabTrack API
+# LabTrack API
 
 API REST para gerenciamento laboratorial: experimentos, amostras e reagentes.
 
 Projeto em desenvolvimento, criado como parte da minha transição de carreira de Biotecnologia/Biologia Química para desenvolvimento back-end. Une meu background científico com programação, com foco em healthtech.
 
-## 🚀 Tecnologias utilizadas
+## Tecnologias utilizadas
 
 - **Python**
 - **FastAPI** - framework para construção da API REST
@@ -12,7 +12,7 @@ Projeto em desenvolvimento, criado como parte da minha transição de carreira d
 - **Pydantic** - validação de dados de entrada e saída
 - **SQLite** - banco de dados usado em desenvolvimento (compatível com migração futura para PostgreSQL)
 
-## 📋 Status atual do projeto
+## Status atual do projeto
 
 Este projeto está sendo construído em etapas, como parte do meu aprendizado prático de back-end. Progresso até aqui:
 
@@ -25,7 +25,7 @@ Este projeto está sendo construído em etapas, como parte do meu aprendizado pr
 - [ ] Relacionamento entre Experimento e Amostra
 - [ ] Documentação Swagger completa
 
-## ⚙️ Como rodar localmente
+## Como rodar localmente
 
 ```bash
 # Clone o repositório
@@ -45,7 +45,7 @@ uvicorn main:app --reload
 
 A API estará disponível em `http://localhost:8000`, com documentação interativa em `http://localhost:8000/docs`.
 
-## 👤 Autor
+## Autor
 
 **Luiz Fernando Covizzi Castilho**
 Desenvolvedor Back-End Python em transição de carreira, com background científico em Biotecnologia (UFU) e Mestrado em Biologia Química (UNIFESP).
