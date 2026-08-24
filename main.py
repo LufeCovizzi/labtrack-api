@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, HTTPException
 from database import Base, engine, get_db
 from models import Experiment
 from sqlalchemy.orm import Session
@@ -31,3 +31,12 @@ def create_experiment(experiment: ExperimentCreate, db: Session = Depends(get_db
 def list_experiments(db: Session = Depends (get_db)):
     experimentos = db.query(Experiment).all()
     return experimentos
+
+@app.get("/experiments/{experiment_id}", response_model=ExperimentOut)
+def get_experiment(experiment_id: int, db: Session = Depends(get_db)):
+    experimento = db.query(Experiment).filter(Experiment.id == experiment_id).first()
+
+    if experimento is None:
+        raise HTTPException(status_code=404, detail="Experimento não encontrado")
+
+    return experimento
