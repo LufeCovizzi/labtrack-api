@@ -73,7 +73,7 @@ python -m venv venv
 venv\Scripts\activate # Windows
 
 # Instale as dependências
-pip install fastapi uvicorn sqlalchemy
+pip install -r requirements.txt
 
 # Rode a aplicação
 uvicorn main:app --reload
