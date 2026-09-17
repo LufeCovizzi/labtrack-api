@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from datetime import datetime
 from typing import Optional
 
@@ -13,6 +13,11 @@ class ExperimentCreate(BaseModel):
     
 # O que a API retorna: ExperimentOut. O que a API retorna quando alguém busca ou cria um experimento
 class ExperimentOut(BaseModel):
+    # sem isso, ExperimentOut.model_validate(objeto_orm) falha fora de uma rota do FastAPI
+    # (o FastAPI força from_attributes=True internamente ao serializar a resposta, mas o
+    # schema em si não tem essa configuração — ver explicação no chat)
+    model_config = ConfigDict(from_attributes=True)
+
     id: int
     title: str
     description: str
@@ -40,6 +45,8 @@ class SampleCreate(BaseModel):
 
 
 class SampleOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     id: int
     experiment_id: int
     code: str
@@ -68,6 +75,8 @@ class ReagentCreate(BaseModel):
 
 
 class ReagentOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     id: int
     name: str
     manufacturer: str

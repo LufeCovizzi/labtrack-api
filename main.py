@@ -74,6 +74,16 @@ def delete_experiment(experiment_id: int, db: Session = Depends(get_db)):
     if experimento is None:
         raise HTTPException(status_code=404, detail="Experimento não encontrado")
 
+    # o cascade default do relationship não deleta as Samples filhas, só zeraria o
+    # experiment_id delas (e SampleOut não aceita experiment_id nulo) — por isso barramos
+    # a exclusão em vez de deixar o SQLAlchemy desassociar as amostras silenciosamente
+    tem_amostras = db.query(Sample).filter(Sample.experiment_id == experiment_id).first()
+    if tem_amostras is not None:
+        raise HTTPException(
+            status_code=409,
+            detail="Não é possível excluir: existem amostras vinculadas a este experimento",
+        )
+
     db.delete(experimento)
     db.commit()
 
