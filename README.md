@@ -2,6 +2,11 @@
 
 API REST para gerenciamento laboratorial: experimentos, amostras e reagentes.
 
+**Deploy:** https://labtrack-api-9byb.onrender.com
+**Documentação interativa (Swagger):** https://labtrack-api-9byb.onrender.com/docs
+
+> A API está hospedada no plano gratuito do Render. A primeira requisição após um período sem uso pode demorar cerca de 50 segundos para responder, enquanto a instância "acorda".
+
 Projeto em desenvolvimento, criado como parte da minha transição de carreira de Biotecnologia/Biologia Química para desenvolvimento back-end. Une meu background científico com programação, com foco em healthtech.
 
 ## Tecnologias utilizadas
@@ -11,6 +16,7 @@ Projeto em desenvolvimento, criado como parte da minha transição de carreira d
 - **SQLAlchemy** - ORM para mapear classes Python em tabelas do banco de dados
 - **Pydantic** - validação de dados de entrada e saída
 - **SQLite** - banco de dados usado em desenvolvimento (compatível com migração futura para PostgreSQL)
+- **Render** - hospedagem da API em produção
 
 ## Funcionalidades
 
@@ -52,6 +58,7 @@ Este projeto está sendo construído em etapas, como parte do meu aprendizado pr
 - [x] Modelos de Amostra (`Sample`) e Reagente (`Reagent`)
 - [x] Rotas CRUD completas para Samples e Reagents
 - [x] Relacionamento entre Experimento e Amostra (chave estrangeira)
+- [x] Deploy em produção (Render)
 - [ ] Documentação Swagger completa (descrições e exemplos em cada rota)
 
 ### Próximos passos
@@ -59,7 +66,6 @@ Este projeto está sendo construído em etapas, como parte do meu aprendizado pr
 - [ ] Migração do banco de dados para PostgreSQL
 - [ ] Testes automatizados (pytest)
 - [ ] Autenticação de usuários
-- [ ] Deploy da API
 
 ## Como rodar localmente
 
