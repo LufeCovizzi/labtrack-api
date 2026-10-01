@@ -15,7 +15,9 @@ Projeto em desenvolvimento, criado como parte da minha transição de carreira d
 - **FastAPI** - framework para construção da API REST
 - **SQLAlchemy** - ORM para mapear classes Python em tabelas do banco de dados
 - **Pydantic** - validação de dados de entrada e saída
-- **SQLite** - banco de dados usado em desenvolvimento (compatível com migração futura para PostgreSQL)
+- **SQLite** - banco padrão em desenvolvimento, usado automaticamente quando a variável `DATABASE_URL` não está definida
+- **PostgreSQL** - suportado via variável de ambiente `DATABASE_URL`; testado localmente contra uma instância gerenciada no Render (ainda não aplicado ao ambiente de produção, que continua em SQLite)
+- **python-dotenv** - carrega variáveis de ambiente de um arquivo `.env` em desenvolvimento local
 - **Render** - hospedagem da API em produção
 
 ## Funcionalidades
@@ -59,11 +61,12 @@ Este projeto está sendo construído em etapas, como parte do meu aprendizado pr
 - [x] Rotas CRUD completas para Samples e Reagents
 - [x] Relacionamento entre Experimento e Amostra (chave estrangeira)
 - [x] Deploy em produção (Render)
+- [x] Suporte a PostgreSQL via variável de ambiente, com fallback para SQLite (testado localmente)
 - [ ] Documentação Swagger completa (descrições e exemplos em cada rota)
 
 ### Próximos passos
 
-- [ ] Migração do banco de dados para PostgreSQL
+- [ ] Apontar o ambiente de produção (Render) para o PostgreSQL
 - [ ] Testes automatizados (pytest)
 - [ ] Autenticação de usuários
 
@@ -80,6 +83,10 @@ venv\Scripts\activate # Windows
 
 # Instale as dependências
 pip install -r requirements.txt
+
+# (Opcional) Configure um banco PostgreSQL copiando .env.example para .env
+# e preenchendo DATABASE_URL. Sem isso, a aplicação usa SQLite automaticamente.
+cp .env.example .env
 
 # Rode a aplicação
 uvicorn main:app --reload
